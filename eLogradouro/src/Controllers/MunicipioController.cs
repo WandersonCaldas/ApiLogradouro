@@ -11,6 +11,7 @@ using System.Web.Http.Description;
 
 namespace src.Controllers
 {
+    //[Authentication.BasicAuthentication]
     public class MunicipioController : ApiController
     {
         [HttpGet]
@@ -42,7 +43,7 @@ namespace src.Controllers
 
         [HttpGet]
         [ResponseType(typeof(MunicipioViewModel))]
-        [Route("api/Municipios/id")]
+        [Route("api/Municipios/{id}")]
         public IHttpActionResult Get(int id)
         {
             List<MunicipioViewModel> lista = new List<MunicipioViewModel>();
@@ -69,7 +70,7 @@ namespace src.Controllers
 
         [HttpGet]
         [ResponseType(typeof(MunicipioViewModel))]
-        [Route("api/MunicipiosEstado/idEstado")]
+        [Route("api/MunicipiosEstado/{idEstado}")]
         public IHttpActionResult GetMunicipiosEstado(int idEstado)
         {
             List<MunicipioViewModel> lista = new List<MunicipioViewModel>();

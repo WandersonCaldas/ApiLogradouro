@@ -11,6 +11,8 @@ using AutoMapper;
 
 namespace src.Controllers
 {
+    //[Authentication.BasicAuthentication]
+    //[RoutePrefix("api/Estados")]
     public class EstadoController : ApiController
     {        
         [HttpGet]
@@ -39,7 +41,7 @@ namespace src.Controllers
 
         [HttpGet]
         [ResponseType(typeof(EstadoViewModel))]
-        [Route("api/Estados/id")]
+        [Route("api/Estados/{id}")]
         public IHttpActionResult Get(int id)
         {
             List<EstadoViewModel> listaEstadoViewModel = new List<EstadoViewModel>();
