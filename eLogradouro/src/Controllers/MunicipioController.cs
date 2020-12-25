@@ -80,14 +80,11 @@ namespace src.Controllers
                 return NotFound();
             }
 
-            List<EstadoViewModel> listaEstados = new List<EstadoViewModel>();
-            listaEstados = Mapper.Map<List<EstadoViewModel>>(new Estado().Listar());
+            EstadoViewModel estado = new EstadoViewModel();
+            estado = Mapper.Map<EstadoViewModel>(new Estado().Listar().Where(x => x.cod_estado == idEstado).FirstOrDefault());
 
             foreach (MunicipioViewModel municipio in lista)
-            {
-                EstadoViewModel estado = new EstadoViewModel();
-                estado = Mapper.Map<EstadoViewModel>(listaEstados.Where(x => x.cod_estado == municipio.cod_estado).FirstOrDefault());
-
+            {                
                 municipio.Estado = estado;
             }
 
