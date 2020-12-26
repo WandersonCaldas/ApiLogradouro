@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,15 +15,16 @@ namespace src.ViewModel
         }
 
         [Key]
+        [JsonProperty(PropertyName = "id")]
         public int cod_municipio { get; set; }
-
-        [Display(Name = "idEstado")]
+        
+        [JsonProperty(PropertyName = "idEstado")]
         public int cod_estado { get; set; }
 
-        [Display(Name = "Município")]
+        [JsonProperty(PropertyName = "Nome")]
         public string txt_municipio { get; set; }
 
-        [Display(Name = "Estado")]
+        [Display(Name = "nomeEstado")]
         public EstadoViewModel Estado { get; set; }
     }
 }
